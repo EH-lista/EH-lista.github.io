@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Zaczepienie u góry</title>
+  <title>Topka Graczy Hopkostki</title>
   <style>
     * {
       margin: 0;
@@ -10,31 +10,48 @@
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       font-family: Arial, sans-serif;
     }
 
     .container {
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .top {
       background: #4a90e2;
       color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 1.5rem;
+      padding: 30px;          /* większy padding */
+      font-size: 2rem;        /* większa czcionka tytułu */
+      font-weight: bold;      /* pogrubienie */
+      flex-shrink: 0;
     }
 
-    .middle {
+    .content {
+      flex: 1;
+      overflow-y: auto;
       background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
+      padding: 20px;
+      font-size: 1.1rem;
+    }
+
+    .content h2 {
+      margin-bottom: 15px;
+      font-size: 2rem; /* powiększony napis Topka: */
+      text-align: center;
+      font-weight: bold; /* pogrubienie */
+    }
+
+    .content ol {
+      list-style: decimal;
+      padding-left: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      font-size: 1.5rem; /* większe imiona */
     }
 
     .bottom {
@@ -43,18 +60,41 @@
       text-align: center;
       padding: 15px;
       font-size: 0.8rem;
-    }
-    h1 {
-      font-size 10 px;
+      flex-shrink: 0;
+      width: 100%;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="top">Top Gracze Entuzjastów Hopkostki</div>
-    <div class="middle">Topka: </div>
-      <h1>1. TermlessHawk: Dark Travel</h1>
-    <div class="bottom">Strona zrobiona przez TermlessHawk</div>
+    <div class="top">Topka Graczy Hopkostki</div>
+    <div class="content">
+      <h2>Topka:</h2>
+      <ol id="ranking"></ol>
+    </div>
+    <div class="bottom">Strona zrobiona przez TermlessHawk - Zgłoś swój wynik napisz do TermlessHawk na discord</div>
   </div>
+
+  <script>
+    const gracze = [
+      "ItzLanx - Tunnel of despair",
+      "Lisyteam - Waterfall",
+      "Gopsiur - The Golden",
+      "Owly - The Golden",
+      "Blobik - Trotil",
+      "Lemniks - Atomic Cannon MK II",
+      "ItzRomuald - Lucid Nightmares",
+      "PawianGD - Ouroboros",
+      "TosterrGMD - Congregation"
+    ];
+
+    const ranking = document.getElementById("ranking");
+
+    gracze.forEach(gracz => {
+      const li = document.createElement("li");
+      li.textContent = gracz;
+      ranking.appendChild(li);
+    });
+  </script>
 </body>
 </html>
