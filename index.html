@@ -2,23 +2,55 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tytuł strony</title>
-  <link rel="stylesheet" href="style.css"> <!-- jeśli chcesz dodać CSS -->
+  <title>Zaczepienie u góry</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+    }
+
+    .top {
+      background: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5rem;
+    }
+
+    .middle {
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .bottom {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.1rem;
+    }
+  </style>
 </head>
 <body>
-
-  <header>
-    <h1>Witamy na mojej stronie</h1>
-    <nav>
-      <ul>
-        <li><a href="#home">Strona główna</a></li>
-        <li><a href="#about">O mnie</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home">
-      <h2>Strona
+  <div class="container">
+    <div class="top">Zaczepienie u góry</div>
+    <div class="middle">Zaczepienie środek</div>
+    <div class="bottom">Zaczepienie dół</div>
+  </div>
+</body>
+</html>
